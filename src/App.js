@@ -18,19 +18,24 @@ function App() {
   }, [term]);
 
   return (
-    <div className="container mx-auto">
-      <Imagesearch searchText={(text) => setTerm(text)} />
+    <>
+      <header className="bg-blue-700 text-white text-center py-3">
+        <h1 className="text-xl text-bold">Pixabay Image Finder</h1>
+      </header>
+      <div className="container mx-auto">
+        <Imagesearch searchText={(text) => setTerm(text)} />
 
-      {!isLoading && images.length === 0 && <h1 className="text-5xl text-center mx-auto mt-32">No Images Found</h1> }
+        {!isLoading && images.length === 0 && <h1 className="text-5xl text-center mx-auto mt-32">No Images Found</h1> }
 
-      {isLoading ? 
-      <h1 className="text-6xl text-center mx-auto mt-32">Loading...</h1> : 
-      <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-col gap-4">
-        {images.map(image => (
-          <Imagecard key={image.id} image={image} />
-        ))}
-      </div>}
-    </div>
+        {isLoading ? 
+        <h1 className="text-6xl text-center mx-auto mt-32">Loading...</h1> : 
+        <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-col gap-4">
+          {images.map(image => (
+            <Imagecard key={image.id} image={image} />
+          ))}
+        </div>}
+      </div>
+    </>
   );
 }
 
