@@ -4,7 +4,7 @@ function Imagecard({ image }) {
     const tags = image.tags.split(',');
     return (
         <div className="max-w-sm rounded overflow-hidden shadow-lg">
-          <a href={image.webformatURL} target="_blank">
+          <a href={image.webformatURL} target="_blank" rel="noreferrer">
             <img src={image.webformatURL} alt="" className="w-full"/>
           </a>
           <div className="px-6 py-4">
